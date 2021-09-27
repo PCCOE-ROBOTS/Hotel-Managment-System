@@ -43,7 +43,7 @@ a:hover {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: #e2e519;
+  background-color: #e0e4ff;
   color: transparent;
   width: 0%;
   content: ".";
@@ -64,7 +64,7 @@ a:hover {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: #e2e519;
+  background-color: #e0e4ff;
   color: transparent;
   width: 80%;
   content: ".";
@@ -101,7 +101,6 @@ a:hover {
   color: #f7f7f7;
   font-size: 14px;
   width: 100%;
-  margin-top: 1rem;
 }
 
 .app-footer .container {
@@ -175,7 +174,7 @@ a:hover {
 }
 
 .app-footer h4::after {
-  background: #e2e519;
+  background: #e0e4ff;
   width: 60px;
 }
 
@@ -240,11 +239,11 @@ a:hover {
 }
 
 .app-footer ul li {
-  color: #e2e519;
+  color: #e0e4ff;
 }
 
 .home {
-  height: 100vh;
+  height: 85vh;
   padding-top: 10vh;
   display: flex;
   justify-content: center;
@@ -253,9 +252,8 @@ a:hover {
   /* color: #ffffff; */
   /* background-color: #101116; */
   background-color: #101116;
-  background: url("../Assets/Images/waiter-holding-tray-in-hotel.png") no-repeat
-    center;
-  background-size: 100vh 95vh;
+  background: url("../Assets/Images/main-bg.svg") no-repeat center;
+  background-size: 70vh;
   background-attachment: fixed;
   background-blend-mode: darken;
 }
@@ -284,13 +282,13 @@ a:hover {
 
 .desc span:before {
   content: "\275D";
-  color: #e2e519;
+  color: #e0e4ff;
   margin-right: 3px;
 }
 
 .desc span:after {
   content: "\275E";
-  color: #e2e519;
+  color: #e0e4ff;
   margin-left: 3px;
 }
 
@@ -307,13 +305,14 @@ a:hover {
 .desc hr {
   width: 30%;
   margin: auto;
-  box-shadow: 2px 2px 4px #e2e519;
+  box-shadow: 2px 2px 4px #e0e4ff;
 }
 
 .login-btn {
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-bottom: 1remf;
 }
 
 .btn {
@@ -329,8 +328,8 @@ a:hover {
   letter-spacing: 0.4px;
   line-height: 1;
   outline: none !important;
-  float: right;
-  background-color: #e2e519 !important;
+
+  background-color: #e0e4ff !important;
   margin-top: 15px;
   color: black;
 }
@@ -345,14 +344,79 @@ a:hover {
 }
 
 .login-form {
-  background-color: #101116;
-  padding: 5rem;
+  /* background-color: #101116; */
+  padding: 2rem;
   color: white !important;
   border-radius: 10px !important;
 }
 
-.login-form .btn {
-  padding: 12px 12px;
+/* End Login Page */
+#contact {
+  padding-top: 15vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: repeating-linear-gradient( -45deg, #fff 0px, #fff 5px, rgba(51, 51, 51, 0.2) 6px, rgba(51, 51, 51, 0.2) 2px, rgba(0, 0, 0, 0.2) 2px); */
+}
+
+.contact-clean form,
+.login-form form {
+  max-width: 480px;
+  width: 90%;
+  margin: 2rem auto 0 auto;
+  padding: 50px 40px 80px 0px;
+  border-radius: 4px;
+  /* background: #ebebeb; */
+  /* z-index: 99; */
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.contact-clean h3,
+.login-form h3 {
+  font-size: 34px;
+  color: black;
+}
+
+.contact-clean p,
+.login-form p {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.contact-clean .form-group:last-child,
+.login-form .form-group:last-child {
+  margin-bottom: 5px;
+}
+
+.contact-clean form .form-control,
+.login-form form .form-control {
+  background: "#f7f7f7";
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  outline: none;
+  padding-left: 12px;
+  height: 42px;
+}
+
+.contact-clean form .form-control,
+.login-form .form-control {
+  border: 2px solid rgba(0, 0, 0, 0.377);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 400px !important;
+}
+
+.contact-clean form textarea.form-control {
+  min-height: 100px;
+  max-height: 260px;
+  padding-top: 10px;
+  resize: vertical;
+}
+
+.contact-clean form .btn,
+.login-form form .btn {
+  padding: 14px 24px;
   border: none;
   background: none;
   box-shadow: none;
@@ -364,15 +428,92 @@ a:hover {
   letter-spacing: 0.4px;
   line-height: 1;
   outline: none !important;
-  background-color: #e2e519 !important;
+}
+
+.contact-clean form .btn:hover,
+.login-form form .btn:hover {
+  opacity: 1;
+}
+
+.contact-clean form .btn:active,
+.login-form form .btn:active {
+  transform: translateY(1px);
+}
+
+.contact-clean form .btn-primary,
+.login-form form .btn-primary {
+  background-color: #e0e4ff !important;
   margin-top: 15px;
   color: black;
 }
 
-.login-form .form-control {
-  width: 100% !important;
+.contact-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* End Login Page */
+
+.contact-side-img {
+  width: 60%;
+  height: auto;
+}
+
+.scroll-to-top {
+  cursor: pointer;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #e0e4ff;
+  color: black;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/*dashboard */
+
+.dashboard {
+  height: 100vh;
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  background-color: #e0e4ff;
+
+  background-attachment: fixed;
+  background-blend-mode: darken;
+}
+
+.dashboard-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #e0e4ff;
+  border-radius: 5px;
+  color: black !important;
+}
+/* End dashboard */
+
+/* book room  && order food*/
+.book-room,
+.order-food {
+  height: 85vh;
+  padding: 2rem;
+  color: #333;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* end book room && order food */
 
 @media screen and (max-width: 480px) {
   .navbar-brand {
@@ -404,7 +545,7 @@ a:hover {
     width: 50%;
     margin: auto;
     height: 2px;
-    box-shadow: 2px 2px 4px #e2e519;
+    box-shadow: 2px 2px 4px #e0e4ff;
   }
 
   .home-description p,

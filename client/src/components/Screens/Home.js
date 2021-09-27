@@ -1,18 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Typewriter from "typewriter-effect";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { AiOutlineFieldTime } from "react-icons/ai";
-import { MdHighQuality } from "react-icons/md";
-import { FcCalendar } from "react-icons/fc";
+
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { UserData } from "../../App";
 // import techHead from "../../images/tech-head.png";
 
 const Home = () => {
+  const contextuserData = useContext(UserData);
   useEffect(() => {
     Aos.init({ duration: 1000 });
-    // document.title = "";
+    //   try {
+    //     axios
+    //       .get(`http://localhost:8080/get_current_user`)
+    //       .then((res) => {
+    //         contextuserData.setuser(res.data);
+    //         console.log(res.data);
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    //   } catch (error) {}
   }, []);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div>
@@ -31,8 +45,9 @@ const Home = () => {
                 }, 1000);
               }}
             />
-            <p>Our Tagline</p>
-            <hr />
+            {/* <p>Our Tagline</p> */}
+
+            {/* <hr /> */}
           </div>
         </div>
       </section>
@@ -40,7 +55,13 @@ const Home = () => {
         <div className="container login-btn">
           <div className="row">
             <Link to="/login">
-              <button className="btn">Login</button>
+              <button
+                className="btn"
+                onClick={scrollToTop}
+                style={{ marginBottom: "1rem" }}
+              >
+                Login
+              </button>
             </Link>
           </div>
         </div>

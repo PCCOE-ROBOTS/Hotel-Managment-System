@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
-import { FaRegQuestionCircle } from "react-icons/fa";
+import { FaRegQuestionCircle, FaUserAlt } from "react-icons/fa";
 import { CgWorkAlt } from "react-icons/cg";
 import { VscOrganization } from "react-icons/vsc";
 import { FiMail } from "react-icons/fi";
 import "../../Styles/main.css";
 // import Logo from "../../images/HexTechSoft1.png";
 
-function Header() {
+function Header(props) {
   const scrollToTop = () => {
     removeShow();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   const removeShow = () => {
     document.getElementById("navbarNavDropdown").classList.remove("show");
     document.getElementById("btn-toggle").classList.add("collapsed");
@@ -90,6 +91,35 @@ function Header() {
                   Contact Us
                 </NavLink>
               </li>
+              {props.user.user && props.user.user.username ? (
+                <>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      to={"/profile"}
+                      onClick={scrollToTop}
+                    >
+                      <FaUserAlt style={{ marginRight: 5, marginBottom: 4 }} />
+                      {props.user.user.username}
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link"
+                      // to={"/logout"}
+                      href="/"
+                      onClick={() => {
+                        scrollToTop();
+                      }}
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </>
+              ) : (
+                ""
+              )}
+
               {/* <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"

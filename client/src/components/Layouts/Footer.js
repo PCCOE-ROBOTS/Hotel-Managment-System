@@ -11,6 +11,7 @@ import {
 import { FaLinkedinIn } from "react-icons/fa";
 // import Logo from "../../images/HexTechSoft.png";
 import "../../Styles/main.css";
+import ScrollToTop from "./ScrollToTop";
 // import ScrollToTop from "../ScrollToTop ";
 
 function Footer() {
@@ -110,7 +111,7 @@ function Footer() {
           Rights Reserved
         </div>
       </div>
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
     </div>
   );
 }
