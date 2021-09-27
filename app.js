@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require("express");
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
@@ -66,3 +67,21 @@ app.listen(process.env.PORT || 8080, (err, res) => {
   }
   console.log("Listening 8080!!");
 });
+=======
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+
+
+const app = express();
+
+
+
+
+
+
+app.listen(3000, function(){
+    console.log("Server running on port 3000");
+});
+>>>>>>> 7579f8eeaa4eed7991782d178175d6e2084b8a8d
