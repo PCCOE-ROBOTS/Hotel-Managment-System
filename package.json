@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/PCCOE-ROBOTS/Hotel-Managment-System#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "memory": "0.0.3",
@@ -32,11 +32,5 @@
     "passport-local": "^1.0.0",
     "sequelize": "^6.6.5",
     "session-memory-store": "^1.0.0"
-=======
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "sql": "^0.78.0"
->>>>>>> 7579f8eeaa4eed7991782d178175d6e2084b8a8d
   }
 }

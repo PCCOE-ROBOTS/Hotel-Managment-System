@@ -1,12 +1,13 @@
 var mysql = require("mysql");
+const dotenv = require("dotenv").config();
 
 const connection = mysql.createConnection({
   supportBigNumbers: true,
   bigNumberStrings: true,
-  host: "localhost",
-  user: "root",
-  password: "Tejas123",
-  database: "hotel_management_system",
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
 });
 
 connection.connect(function (err) {

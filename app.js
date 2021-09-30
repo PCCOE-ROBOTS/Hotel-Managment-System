@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var express = require("express");
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
@@ -7,8 +6,7 @@ var app = express();
 var passport = require("passport");
 const cors = require("cors");
 
-require("./config/passport")(passport); // pass passport for configuration
-app.use(cookieParser()); // read cookies (needed for auth)
+app.use(cookieParser("secretcode"));
 app.use(
   bodyParser.urlencoded({
     extended: false,
@@ -18,16 +16,20 @@ app.use(bodyParser.json());
 
 app.use(
   session({
-    secret: "vidyapathaisalwaysrunning",
+    secret: "Thsissecret",
     cookie: { httpOnly: false },
     resave: true,
     saveUninitialized: true,
   })
-); // session secret
-app.use(cors());
+);
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.use(function (req, res, next) {
-  //allow cross origin requests
   res.setHeader(
     "Access-Control-Allow-Methods",
     "POST, PUT, OPTIONS, DELETE, GET"
@@ -41,25 +43,10 @@ app.use(function (req, res, next) {
 
 app.use(passport.initialize());
 app.use(passport.session());
+require("./config/passport")(passport);
 
-app.get("/success", (req, res) => {
-  console.log(req.user);
-  res.send({ status: "success", user: req.user });
-});
-app.get("/failed", (req, res) => {
-  console.log(req.msg);
-  res.send({ status: "failed", msg: req.msg });
-});
-app.post("/success", (req, res) => {
-  console.log(req.user);
-  res.send({ status: "success", user: req.user });
-});
-app.post("/failed", (req, res) => {
-  console.log(req.msg);
-  res.send({ status: "failed", msg: req.msg });
-});
-
-require("./routes/auth.js")(app, passport); // load our routes and pass in our app and fully configured passport
+require("./routes/auth.js")(app, passport);
+app.use(require("./routes/tempRoutes"));
 
 app.listen(process.env.PORT || 8080, (err, res) => {
   if (err) {
@@ -67,21 +54,3 @@ app.listen(process.env.PORT || 8080, (err, res) => {
   }
   console.log("Listening 8080!!");
 });
-=======
-const express = require('express');
-const bodyParser = require('body-parser');
-const mysql = require('mysql');
-
-
-
-const app = express();
-
-
-
-
-
-
-app.listen(3000, function(){
-    console.log("Server running on port 3000");
-});
->>>>>>> 7579f8eeaa4eed7991782d178175d6e2084b8a8d

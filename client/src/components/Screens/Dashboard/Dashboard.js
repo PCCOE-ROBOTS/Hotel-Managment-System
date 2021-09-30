@@ -1,21 +1,22 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { useRouteMatch } from "react-router";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { Link, Redirect, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import BookRoom from "./Sections/BookRoom/BookRoom";
 import OrderFood from "./Sections/OrderFood/OrderFood";
-import { UserData } from "../../../App";
+// import { UserData } from "../../../App";
 
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
-  const userData = useContext(UserData);
-  useEffect(() => {
-    Aos.init({ duration: 1500 });
-  }, []);
-  // if (!userData.authenticated) {
-  //   return <Redirect to="/login" />;
-  // }
+  // const userData = useContext(UserData);
+  // const history = useHistory();
+  // useEffect(() => {
+  //   console.log(userData.authenticated);
+  //   if (!userData.authenticated) {
+  //     console.log("inside if");
+  //     history.push("/login");
+  //   }
+  // }, []);
+
   return (
     <>
       <div className="dashboard">

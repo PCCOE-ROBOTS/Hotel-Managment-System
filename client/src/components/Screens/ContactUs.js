@@ -15,60 +15,50 @@ const ContactUs = () => {
 
   return (
     <div>
-      <section id="contact" data-aos="fade-up">
-        <div className="contact-clean row">
-          <div style={{ textAlign: "center", width: "100%" }}>
-            <h3 className="text-center">
-              <span>Contact us</span>
-            </h3>
-          </div>
-
-          {/* <div className="col-md-6 contact-img">
-            <img className="contact-side-img" src={ContactImg} alt="contact" />
-          </div> */}
-          <div
-            className="container"
-            style={{ display: "flex", justifyContent: "center" }}
+      <div className="container contact-form-container">
+        <div className=" col-sm-12 col-lg-5 contact-form">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
           >
-            <div className="row">
-              <div className="col-md-12" style={{ padding: "0" }}>
-                <form>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <textarea
-                      className="form-control"
-                      name="message"
-                      placeholder="Message"
-                      rows="14"
-                    ></textarea>
-                  </div>
-                  <div className="mb-3">
-                    <button className="btn btn-primary" type="submit">
-                      send{" "}
-                    </button>
-                  </div>
-                </form>
-              </div>
+            <div className="mb-3">
+              <input
+                className="form-control "
+                type="text"
+                name="name"
+                placeholder="Name"
+                value=""
+                onChange={(e) => {}}
+              />
             </div>
-          </div>
+            <div className="mb-3">
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value=""
+                onChange={(e) => {}}
+              />
+            </div>
+
+            <div className="mb-3">
+              <textarea
+                className="form-control"
+                name="message"
+                placeholder="Message"
+                rows="4"
+                required="true"
+              ></textarea>
+            </div>
+
+            <button className="btn btn-primary login-btn" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

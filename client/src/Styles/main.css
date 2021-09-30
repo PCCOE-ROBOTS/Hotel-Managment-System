@@ -18,6 +18,16 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.navbar-dark .navbar-toggler {
+  margin: 0.5rem;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 .bg-dark {
   background: #101116 !important;
   /* transition-delay: 0.5s;
@@ -25,8 +35,8 @@ a:hover {
 }
 
 .nav-link {
-  padding: 1.5rem 1rem 1.3rem 1rem !important;
-  font-size: 16px;
+  padding: 0.8rem 0.8rem 0.8rem 0.8rem !important;
+  font-size: 12px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -47,9 +57,10 @@ a:hover {
   color: transparent;
   width: 0%;
   content: ".";
-  height: 5px;
+  height: 2px;
   transition: all 0.5s;
-  border-radius: 5px;
+  border-radius: 3px;
+  margin-bottom: 2px;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover::after {
@@ -66,9 +77,10 @@ a:hover {
   margin: auto;
   background-color: #e0e4ff;
   color: transparent;
-  width: 80%;
+  width: 90%;
   content: ".";
-  height: 5px;
+  height: 2px;
+  margin-bottom: 2px;
 }
 
 /* 
@@ -212,14 +224,6 @@ a:hover {
   color: #eee;
 }
 
-/* .app-footer .footer-links ul li:hover {
-  color: #ff6060;
-} */
-
-/* .app-footer .footer-contact {
-  margin-bottom: 30px;
-} */
-
 .app-footer .footer-contact p {
   line-height: 26px;
 }
@@ -249,8 +253,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   color: #333;
-  /* color: #ffffff; */
-  /* background-color: #101116; */
   background-color: #101116;
   background: url("../Assets/Images/main-bg.svg") no-repeat center;
   background-size: 70vh;
@@ -263,8 +265,6 @@ a:hover {
   height: auto;
   z-index: 9;
   text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* vertical-align: middle; */
-  /* align-items: center; */
 }
 
 .desc {
@@ -272,6 +272,7 @@ a:hover {
   font-weight: 600;
   padding: 7rem 3rem 7rem 3rem;
   text-align: center;
+  color: #000;
   /* z-index: 100; */
 }
 
@@ -282,13 +283,13 @@ a:hover {
 
 .desc span:before {
   content: "\275D";
-  color: #e0e4ff;
+  color: #000;
   margin-right: 3px;
 }
 
 .desc span:after {
   content: "\275E";
-  color: #e0e4ff;
+  color: #000;
   margin-left: 3px;
 }
 
@@ -312,7 +313,8 @@ a:hover {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-bottom: 1remf;
+  margin-bottom: 1rem;
+  color: black !important;
 }
 
 .btn {
@@ -336,126 +338,44 @@ a:hover {
 
 /* Login Page*/
 .login {
-  padding-top: 10vh;
+  padding-top: 5vh;
   min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.login-form {
-  /* background-color: #101116; */
+.login-form-container,
+.contact-form-container {
+  /* height: 75vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  color: white !important;
-  border-radius: 10px !important;
+  margin-top: 2rem;
 }
 
-/* End Login Page */
-#contact {
-  padding-top: 15vh;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background: repeating-linear-gradient( -45deg, #fff 0px, #fff 5px, rgba(51, 51, 51, 0.2) 6px, rgba(51, 51, 51, 0.2) 2px, rgba(0, 0, 0, 0.2) 2px); */
-}
-
-.contact-clean form,
-.login-form form {
-  max-width: 480px;
-  width: 90%;
-  margin: 2rem auto 0 auto;
-  padding: 50px 40px 80px 0px;
+.login-form,
+.contact-form {
+  background-color: #101116;
+  padding: 4rem;
   border-radius: 4px;
-  /* background: #ebebeb; */
-  /* z-index: 99; */
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
-.contact-clean h3,
-.login-form h3 {
-  font-size: 34px;
-  color: black;
-}
-
-.contact-clean p,
-.login-form p {
-  margin: 2rem;
-  padding: 1rem;
-}
-
-.contact-clean .form-group:last-child,
-.login-form .form-group:last-child {
-  margin-bottom: 5px;
-}
-
-.contact-clean form .form-control,
-.login-form form .form-control {
-  background: "#f7f7f7";
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
-  outline: none;
-  padding-left: 12px;
-  height: 42px;
-}
-
-.contact-clean form .form-control,
-.login-form .form-control {
-  border: 2px solid rgba(0, 0, 0, 0.377);
-  border-radius: 5px;
-  margin-bottom: 10px;
-  width: 400px !important;
-}
-
-.contact-clean form textarea.form-control {
-  min-height: 100px;
-  max-height: 260px;
-  padding-top: 10px;
-  resize: vertical;
-}
-
-.contact-clean form .btn,
-.login-form form .btn {
-  padding: 14px 24px;
-  border: none;
-  background: none;
-  box-shadow: none;
-  text-shadow: none;
-  opacity: 0.9;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: 0.4px;
-  line-height: 1;
+.login-form .form-control,
+.contact-form .form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
   outline: none !important;
+  border: none !important;
+  border-radius: 2px !important;
 }
 
-.contact-clean form .btn:hover,
-.login-form form .btn:hover {
-  opacity: 1;
-}
-
-.contact-clean form .btn:active,
-.login-form form .btn:active {
-  transform: translateY(1px);
-}
-
-.contact-clean form .btn-primary,
-.login-form form .btn-primary {
-  background-color: #e0e4ff !important;
-  margin-top: 15px;
-  color: black;
-}
-
-.contact-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-side-img {
-  width: 60%;
-  height: auto;
+.login-form .form-control:focus,
+.contact-form .form-control:focus {
+  box-shadow: none !important;
 }
 
 .scroll-to-top {
@@ -479,13 +399,12 @@ a:hover {
 
 .dashboard {
   height: 100vh;
-  padding-top: 10vh;
+  padding-top: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #333;
   background-color: #e0e4ff;
-
   background-attachment: fixed;
   background-blend-mode: darken;
 }
@@ -526,9 +445,17 @@ a:hover {
   }
 
   .home {
-    /* background: url("../images/b4-480.jpg") no-repeat center; */
-    background-size: cover;
+    height: 90vh;
+    padding-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    background-color: #101116;
+    background: url("../Assets/Images/main-bg.svg") no-repeat center;
+    background-size: 40vh;
     background-attachment: fixed;
+    background-blend-mode: darken;
   }
 
   .desc {
@@ -557,9 +484,39 @@ a:hover {
     margin-top: 1rem;
   }
 
+  .app-footer .container a {
+    font-size: 12px;
+  }
+
   .home-svg img {
     height: 240px;
     width: 240px;
     margin-top: -20px;
+  }
+
+  .login-form {
+    padding: 2rem 1rem;
+    border-radius: 4px;
+  }
+  .login-form .form-control {
+    width: 280px !important;
+  }
+
+  .contact-form {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    border-radius: 4px;
+  }
+  .contact-form .form-control {
+    width: 280px !important;
+  }
+
+  .login-btn {
+    width: 10% !important;
+    font-size: 14px;
+  }
+
+  .app-footer .copy-container {
+    font-size: 9px;
   }
 }

@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
-import { FaRegQuestionCircle, FaUserAlt } from "react-icons/fa";
-import { CgWorkAlt } from "react-icons/cg";
+import { FaUserAlt } from "react-icons/fa";
+import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { VscOrganization } from "react-icons/vsc";
 import { FiMail } from "react-icons/fi";
 import "../../Styles/main.css";
-// import Logo from "../../images/HexTechSoft1.png";
+import axios from "axios";
+import { UserData } from "../../App";
+import { isLoggedin } from "../Utils/auth";
 
 function Header(props) {
+  const [user, setUser] = useState(null);
+  const userData = useContext(UserData);
   const scrollToTop = () => {
     removeShow();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -19,16 +23,24 @@ function Header(props) {
     document.getElementById("btn-toggle").classList.add("collapsed");
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", (e) => {
-  //     const nav = document.querySelector(".bg-dark");
-  //     if (window.pageYOffset > 100) {
-  //       nav.classList.remove("transparent");
-  //     } else {
-  //       nav.classList.add("transparent");
-  //     }
-  //   });
-  // }, [])
+  useEffect(() => {
+    isLoggedin()
+      .then((res) => {
+        if (res) {
+          setUser(res.data);
+        }
+      })
+      .catch((err) => {});
+
+    window.addEventListener("scroll", (e) => {
+      const nav = document.querySelector(".bg-dark");
+      if (window.pageYOffset > 100) {
+        nav.classList.remove("transparent");
+      } else {
+        nav.classList.add("transparent");
+      }
+    });
+  }, [userData.authenticated]);
 
   return (
     <div className="app-header">
@@ -69,7 +81,7 @@ function Header(props) {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   to={"/about"}
@@ -80,7 +92,7 @@ function Header(props) {
                   />
                   About Us
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
@@ -91,7 +103,8 @@ function Header(props) {
                   Contact Us
                 </NavLink>
               </li>
-              {props.user.user && props.user.user.username ? (
+
+              {user && user.username ? (
                 <>
                   <li className="nav-item">
                     <NavLink
@@ -100,24 +113,33 @@ function Header(props) {
                       onClick={scrollToTop}
                     >
                       <FaUserAlt style={{ marginRight: 5, marginBottom: 4 }} />
-                      {props.user.user.username}
+                      {user.username}
                     </NavLink>
                   </li>
                   <li className="nav-item">
                     <a
                       className="nav-link"
-                      // to={"/logout"}
-                      href="/"
+                      href="/logout"
                       onClick={() => {
                         scrollToTop();
                       }}
                     >
+                      <FiLogOut style={{ marginRight: 5, marginBottom: 4 }} />
                       Logout
                     </a>
                   </li>
                 </>
               ) : (
-                ""
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    to={"/login"}
+                    onClick={scrollToTop}
+                  >
+                    <FiLogIn style={{ marginRight: 5, marginBottom: 4 }} />
+                    Login
+                  </NavLink>
+                </li>
               )}
 
               {/* <li className="nav-item dropdown">
