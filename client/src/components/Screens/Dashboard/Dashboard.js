@@ -3,19 +3,9 @@ import { useRouteMatch } from "react-router";
 import { Link, Switch, Route } from "react-router-dom";
 import BookRoom from "./Sections/BookRoom/BookRoom";
 import OrderFood from "./Sections/OrderFood/OrderFood";
-// import { UserData } from "../../../App";
 
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
-  // const userData = useContext(UserData);
-  // const history = useHistory();
-  // useEffect(() => {
-  //   console.log(userData.authenticated);
-  //   if (!userData.authenticated) {
-  //     console.log("inside if");
-  //     history.push("/login");
-  //   }
-  // }, []);
 
   return (
     <>
@@ -35,7 +25,7 @@ const Dashboard = () => {
                 }}
               >
                 <Link className="row dashboard-tab mt-3" to={`${url}`}>
-                  <strong style={{ textAlign: "center" }}>Dashboard</strong>
+                  <strong style={{ textAlign: "center" }}>Dashboard </strong>
                 </Link>
                 <Link className="row dashboard-tab" to={`${url}/book-room`}>
                   <strong style={{ textAlign: "center" }}>Book Room</strong>

@@ -1,25 +1,19 @@
 const bcrypt = require("bcrypt-nodejs");
 const localStrategy = require("passport-local").Strategy;
-const connection = require("../config/database");
+const User = require("../models/User");
+
 module.exports = function (passport) {
   passport.use(
     new localStrategy((username, password, done) => {
-      connection.query(
-        "SELECT * FROM users WHERE username = ?",
-        [username],
-        function (err, rows) {
-          if (err) {
-            return done(err);
-          }
-          if (!rows.length) {
-            return done(null, false);
-          }
-          if (!bcrypt.compareSync(password, rows[0].password)) {
-            return done(null, false);
-          }
-          return done(null, rows[0]);
+      User.findOne({ username, password }, (err, user) => {
+        if (err) {
+          return done(err);
         }
-      );
+        if (user.password !== password) {
+          return done(null, false);
+        }
+        return done(null, user);
+      });
     })
   );
 
@@ -28,12 +22,8 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser((user, done) => {
-    connection.query(
-      "SELECT * FROM users WHERE id = ? ",
-      [user.id],
-      function (err, rows) {
-        done(err, rows[0]);
-      }
-    );
+    User.findOne({ _id: user._id }, (err, user) => {
+      done(err, user);
+    });
   });
 };

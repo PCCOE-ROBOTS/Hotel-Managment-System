@@ -11,8 +11,8 @@ import { UserData } from "../../App";
 import { isLoggedin } from "../Utils/auth";
 
 function Header(props) {
-  const [user, setUser] = useState(null);
   const userData = useContext(UserData);
+  const [user, setUser] = useState(userData.user);
   const scrollToTop = () => {
     removeShow();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -23,11 +23,23 @@ function Header(props) {
     document.getElementById("btn-toggle").classList.add("collapsed");
   };
 
+  // const logout = () => {
+  //   axios
+  //     .post("/logout")
+  //     .then((res) => {
+  //       userData.setUser(null);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   useEffect(() => {
     isLoggedin()
       .then((res) => {
-        if (res) {
+        if (res.data.status !== "error") {
+          console.log("inside header");
           setUser(res.data);
+          userData.setUser(res.data);
+          userData.setauthenticated(true);
         }
       })
       .catch((err) => {});
@@ -122,6 +134,7 @@ function Header(props) {
                       href="/logout"
                       onClick={() => {
                         scrollToTop();
+                        // logout();
                       }}
                     >
                       <FiLogOut style={{ marginRight: 5, marginBottom: 4 }} />

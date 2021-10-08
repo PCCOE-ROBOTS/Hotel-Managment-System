@@ -1,18 +1,21 @@
-var mysql = require("mysql");
 const dotenv = require("dotenv").config();
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const connection = mysql.createConnection({
-  supportBigNumbers: true,
-  bigNumberStrings: true,
-  host: process.env.DATABASE_HOST,
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
+const connectDB = async () => {
+  try {
+    await mongoose.connect(
+      "mongodb+srv://admin-aditya:test123@cluster0.xdqgk.mongodb.net/HotelManagementSystem?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+    console.log("MongoDB connected...");
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
+};
 
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-module.exports = connection;
+module.exports = connectDB;

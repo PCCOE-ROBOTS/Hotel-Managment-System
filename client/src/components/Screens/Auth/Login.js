@@ -17,6 +17,7 @@ const Login = () => {
       if (res.data.status === "success") {
         contextuserData.setuser(res.data.user);
         contextuserData.setauthenticated(true);
+        // contextuserData.checkAuth();
         setisLoggedin(true);
       } else {
         alert("Invalid User");
@@ -25,7 +26,8 @@ const Login = () => {
     });
   };
   if (isLoggedin) {
-    return <Redirect to="/receptionist/dashboard" />;
+    console.log("redirecting from login");
+    return <Redirect to="/receptionist/customers" />;
   }
   return (
     <div className="login">

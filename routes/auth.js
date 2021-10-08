@@ -1,4 +1,3 @@
-const connection = require("../config/database");
 module.exports = function (app, passport) {
   app.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
@@ -19,6 +18,10 @@ module.exports = function (app, passport) {
   });
 
   app.get("/get_current_user/", (req, res) => {
-    res.send(req.user);
+    if (req.user) {
+      res.send(req.user);
+    } else {
+      res.send({ status: "error" });
+    }
   });
 };

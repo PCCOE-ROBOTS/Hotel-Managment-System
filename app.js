@@ -5,6 +5,9 @@ var bodyParser = require("body-parser");
 var app = express();
 var passport = require("passport");
 const cors = require("cors");
+const connectDB = require("./config/database");
+
+connectDB();
 
 app.use(cookieParser("secretcode"));
 app.use(

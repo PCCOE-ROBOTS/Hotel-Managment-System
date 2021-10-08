@@ -308,7 +308,9 @@ a:hover {
   margin: auto;
   box-shadow: 2px 2px 4px #e0e4ff;
 }
-
+.btn-primary {
+  color: black !important;
+}
 .login-btn {
   display: flex;
   justify-content: center;
@@ -421,6 +423,31 @@ a:hover {
   color: black !important;
 }
 /* End dashboard */
+
+.users {
+  min-height: 100vh;
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  color: #333;
+  background-color: #e0e4ff;
+  font-size: 10x !important;
+  padding-bottom: 1rem;
+}
+
+.user-list-container > .row {
+  background-color: #101116;
+  border-radius: 4px;
+  margin: 0.1rem;
+  padding: 1rem;
+  color: white;
+}
+
+.user-list-container .col-md-2,
+.user-list-container .col-md-1 {
+  text-align: center;
+}
 
 /* book room  && order food*/
 .book-room,
