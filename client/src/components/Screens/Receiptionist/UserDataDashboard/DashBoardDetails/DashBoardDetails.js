@@ -32,8 +32,12 @@ const DashBoardDetails = (props) => {
     <div className="container-fluid dashboard-details dashboard-right">
       {data ? (
         <div className="container">
-          {/* <div className="row">
+          <div
+            className="row"
+            style={{ display: "flex", justifyContent: "flex-end" }}
+          >
             <Link
+              to="/"
               style={{
                 fontWeight: "600",
                 cursor: "pointer",
@@ -51,7 +55,7 @@ const DashBoardDetails = (props) => {
               {" "}
               <BiEdit size={20} />
             </Link>
-          </div> */}
+          </div>
           <div className="row dashboard-row">
             <div className="col-4">Name : {data.name}</div>
             <div className="col-4">Email Id : {data.email}</div>

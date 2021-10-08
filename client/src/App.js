@@ -1,4 +1,4 @@
-import "./App.css";
+import "./components/Assets/Styles/App.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,17 +7,17 @@ import {
 } from "react-router-dom";
 import Header from "./components/Layouts/Header";
 import Footer from "./components/Layouts/Footer";
-import "./Styles/main.css";
-import Home from "./components/Screens/Home";
+import "./components/Assets/Styles/main.css";
+import Home from "./components/Layouts/Home";
 import Login from "./components/Screens/Auth/Login";
-import ContactUs from "./components/Screens/ContactUs";
+import ContactUs from "./components/Layouts/ContactUs";
 import { createContext, useState, useEffect } from "react";
-import Dashboard from "./components/Screens/Dashboard/Dashboard";
 import { isLoggedin } from "./components/Utils/Api/auth";
-import UserList from "./components/Screens/Dashboard/UserList";
-import AddNewRecord from "./components/Screens/AddNewRecord/AddNewRecord";
+import UserList from "./components/Screens/Receiptionist/CustomerRecords/UserList";
+import AddNewRecord from "./components/Screens/Receiptionist/CustomerRecords/AddNewRecord";
 import AlertComponent from "./components/Layouts/AlertComponent";
 import PreLoader from "./components/Layouts/PreLoader";
+import Dashboard from "./components/Screens/Receiptionist/UserDataDashboard/Dashboard";
 
 export const UserData = createContext(null);
 function App() {

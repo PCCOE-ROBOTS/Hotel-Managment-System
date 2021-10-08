@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { ImPlus } from "react-icons/im";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { addnewRecord } from "../../Utils/Api/Records";
-import { UserData } from "../../../App";
+import { addnewRecord } from "../../../Utils/Api/Records";
+import { UserData } from "../../../../App";
 import { Redirect } from "react-router-dom";
 
 const AddNewRecord = () => {

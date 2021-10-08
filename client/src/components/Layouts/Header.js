@@ -5,7 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { VscOrganization } from "react-icons/vsc";
 import { FiMail } from "react-icons/fi";
-import "../../Styles/main.css";
+
 import axios from "axios";
 import { UserData } from "../../App";
 import { isLoggedin } from "../Utils/Api/auth";

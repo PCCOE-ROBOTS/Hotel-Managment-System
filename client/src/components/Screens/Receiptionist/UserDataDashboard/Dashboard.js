@@ -4,9 +4,9 @@ import "aos/dist/aos.css";
 import { useRouteMatch, useParams } from "react-router";
 import { ImArrowLeft2 } from "react-icons/im";
 import { Link, Switch, Route } from "react-router-dom";
-import BookRoom from "./Sections/BookRoom/BookRoom";
-import OrderFood from "./Sections/OrderFood/OrderFood";
-import DashBoardDetails from "./Sections/DashBoardDetails/DashBoardDetails";
+import BookRoom from "./BookRoom/BookRoom";
+import OrderFood from "./OrderFood/OrderFood";
+import DashBoardDetails from "./DashBoardDetails/DashBoardDetails";
 
 const Dashboard = () => {
   const { path, url } = useRouteMatch();

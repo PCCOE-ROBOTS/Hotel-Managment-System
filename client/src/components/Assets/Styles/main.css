@@ -1,14 +1,13 @@
-a {
+/* a {
   color: #f7f7f7;
   text-decoration: none;
 }
 
 a:hover {
   color: rgba(255, 255, 255, 0.8);
-  /* border-bottom: 2px solid rgba(255, 255, 255, 0.95); */
   padding-left: 2px;
   padding-right: 2px;
-}
+} */
 
 .navbar {
   padding: 0;
@@ -194,6 +193,21 @@ a:hover {
   margin-bottom: 30px;
 }
 
+.app-footer .footer-links a,
+.app-footer .footer-contact a,
+.small-screen-none a {
+  color: #f7f7f7;
+  text-decoration: none;
+}
+
+.app-footer .footer-links a:hover,
+.app-footer .footer-contact a:hover,
+.small-screen-none a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
 .app-footer .footer-links ul {
   list-style: none;
   padding: 0;
@@ -254,7 +268,7 @@ a:hover {
   align-items: center;
   color: #333;
   background-color: #101116;
-  background: url("../Assets/Images/main-bg.svg") no-repeat center;
+  background: url("../Images/main-bg.svg") no-repeat center;
   background-size: 70vh;
   background-attachment: fixed;
   background-blend-mode: darken;
@@ -332,7 +346,6 @@ a:hover {
   letter-spacing: 0.4px;
   line-height: 1;
   outline: none !important;
-
   background-color: #e0e4ff !important;
   margin-top: 15px;
   color: black;
@@ -459,6 +472,10 @@ a:hover {
   background-blend-mode: darken;
 }
 
+.dashboard a {
+  text-decoration: none;
+}
+
 .dashboard-tab {
   display: flex;
   justify-content: center;
@@ -517,6 +534,23 @@ a:hover {
   text-align: center;
 }
 
+.search-box input {
+  width: 50%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-right: 10px;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 /* book room  && order food*/
 .book-room,
 .order-food {
@@ -547,7 +581,7 @@ a:hover {
     align-items: center;
     color: #333;
     background-color: #101116;
-    background: url("../Assets/Images/main-bg.svg") no-repeat center;
+    background: url("../Images/main-bg.svg") no-repeat center;
     background-size: 40vh;
     background-attachment: fixed;
     background-blend-mode: darken;
@@ -615,6 +649,65 @@ a:hover {
     font-size: 9px;
   }
 
+  .user-list-container .col-md-2,
+  .user-list-container .col-md-1 {
+    text-align: left;
+  }
+
+  .search-box input {
+    width: 80%;
+    margin-left: 5%;
+  }
+
+  .small-screen-none {
+    display: none;
+  }
+
+  .record-card {
+    width: 95%;
+    margin: 1rem;
+    margin-left: 2.5%;
+    background-color: #101116;
+    color: white;
+  }
+
+  .add-customer {
+    width: 90%;
+    margin-left: 5% !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .add-customer .btn {
+    padding: 0.5rem;
+  }
+
+  .record-card .record-card-link {
+    padding: 8px 24px;
+    font-size: 12px !important;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important;
+    background-color: #e0e4ff !important;
+    margin-top: 15px;
+    color: black;
+    border-radius: 3px;
+    text-decoration: none !important;
+  }
+  .record-card .red-link {
+    padding: 8px 14px;
+    margin-left: 0.5rem;
+    background-color: rgba(255, 0, 0, 0.932) !important;
+  }
+
   .add-new-record {
     min-height: 70vh;
   }
@@ -625,5 +718,11 @@ a:hover {
   .add-new-form {
     padding: 1.5rem;
     width: 90%;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .big-screen-none {
+    display: none;
   }
 }

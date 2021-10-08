@@ -10,7 +10,7 @@ import {
 } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 // import Logo from "../../images/HexTechSoft.png";
-import "../../Styles/main.css";
+
 import ScrollToTop from "./ScrollToTop";
 // import ScrollToTop from "../ScrollToTop ";
 

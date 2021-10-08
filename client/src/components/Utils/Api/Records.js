@@ -15,3 +15,8 @@ export const getRecordUsingId = (_id) => {
     return axios.get(`/get-record/${_id}`);
   } catch (error) {}
 };
+export const deleteOneRecord = (data) => {
+  try {
+    return axios.post(`/delete-record`, data);
+  } catch (error) {}
+};

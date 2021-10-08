@@ -37,5 +37,15 @@ router.get("/get-record/:_id", (req, res) => {
     }
   });
 });
+router.post("/delete-record", (req, res) => {
+  Record.deleteOne(req.body, (err, deleted) => {
+    if (err) {
+      console.log(err);
+      res.send({ status: "error" });
+    } else {
+      res.send({ status: "success" });
+    }
+  });
+});
 
 module.exports = router;
