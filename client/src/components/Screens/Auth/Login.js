@@ -1,32 +1,26 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { UserData } from "../../../App";
+import { loginApi } from "../../Utils/Api/auth";
 
 const Login = () => {
   const [userData, setuserData] = useState({ username: "", password: "" });
   const [isLoggedin, setisLoggedin] = useState(false);
   const contextuserData = useContext(UserData);
   const login = () => {
-    axios({
-      method: "POST",
-      data: userData,
-      withCredentials: true,
-      url: "http://localhost:8080/login",
-    }).then((res) => {
-      if (res.data.status === "success") {
+    loginApi(userData).then((res) => {
+      if (res.data.status !== "success") {
+        setuserData({ username: "", password: "" });
+        contextuserData.handleAlert("error", "Invalid Username or password");
+      } else {
         contextuserData.setuser(res.data.user);
         contextuserData.setauthenticated(true);
-        // contextuserData.checkAuth();
         setisLoggedin(true);
-      } else {
-        alert("Invalid User");
-        setuserData({ username: "", password: "" });
+        contextuserData.handleAlert("success", "Logged in successfully");
       }
     });
   };
   if (isLoggedin) {
-    console.log("redirecting from login");
     return <Redirect to="/receptionist/customers" />;
   }
   return (

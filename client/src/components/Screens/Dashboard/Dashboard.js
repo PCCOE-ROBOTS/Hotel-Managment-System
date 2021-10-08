@@ -1,16 +1,42 @@
 import React from "react";
-import { useRouteMatch } from "react-router";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useRouteMatch, useParams } from "react-router";
+import { ImArrowLeft2 } from "react-icons/im";
 import { Link, Switch, Route } from "react-router-dom";
 import BookRoom from "./Sections/BookRoom/BookRoom";
 import OrderFood from "./Sections/OrderFood/OrderFood";
+import DashBoardDetails from "./Sections/DashBoardDetails/DashBoardDetails";
 
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
+  const { recordId } = useParams();
 
   return (
     <>
       <div className="dashboard">
         <div className="container-fluid">
+          <div className="row my-2">
+            <div className="col-12">
+              <Link
+                to={`/receptionist/customers`}
+                style={{
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "30px",
+                  height: "30px",
+                  color: "#e0e4ff",
+                  borderRadius: "100%",
+                  backgroundColor: "#000",
+                }}
+              >
+                <ImArrowLeft2 size={14} />
+              </Link>
+            </div>
+          </div>
           <div className="row">
             <div className="col-md-2">
               <div
@@ -38,23 +64,13 @@ const Dashboard = () => {
             <div className="col-md-10">
               <Switch>
                 <Route exact path={`${path}`}>
-                  <div
-                    className="container-fluid"
-                    style={{
-                      backgroundColor: "white",
-                      padding: "2rem",
-                      height: "85vh",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    Dashboard
-                  </div>
+                  <DashBoardDetails _id={recordId} />
                 </Route>
                 <Route path={`${path}/book-room`}>
-                  <BookRoom />
+                  <BookRoom _id={recordId} />
                 </Route>
                 <Route path={`${path}/order-food`}>
-                  <OrderFood />
+                  <OrderFood _id={recordId} />
                 </Route>
               </Switch>
             </div>

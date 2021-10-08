@@ -341,7 +341,7 @@ a:hover {
 /* Login Page*/
 .login {
   padding-top: 5vh;
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -355,6 +355,9 @@ a:hover {
   align-items: center;
   padding: 2rem;
   margin-top: 2rem;
+}
+.contact-form-container {
+  margin: 5rem auto;
 }
 
 .login-form,
@@ -397,6 +400,51 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+/*Add New Record
+*/
+
+.add-new-record-title {
+  color: black;
+}
+
+.add-new-record {
+  /* padding-top: 6vh; */
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-form {
+  background-color: #101116;
+  padding: 4rem;
+  border-radius: 4px;
+  width: 60%;
+  /* margin-left: 20%;*/
+  /* margin-top: 1rem; */
+}
+
+.add-new-form .form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  outline: none !important;
+  border: none !important;
+  border-bottom: 1px solid #e0e4ff !important;
+  border-radius: 2px !important;
+}
+
+.add-new-form .form-control:focus {
+  box-shadow: none !important;
+}
+
+.add-new-form .check-input-label {
+  color: white !important;
+  font-size: 12px;
+}
+/* end of Add new Record */
+
 /*dashboard */
 
 .dashboard {
@@ -422,7 +470,27 @@ a:hover {
   border-radius: 5px;
   color: black !important;
 }
+.dashboard-right {
+  overflow-y: scroll;
+}
 /* End dashboard */
+
+/*DashBoard Details*/
+.dashboard-details {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  height: 85vh;
+}
+.dashboard-details .dashboard-row {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.1rem;
+  color: white;
+  background-color: #101116;
+  border-radius: 5px;
+}
+/*End DashBoard Details*/
 
 .users {
   min-height: 100vh;
@@ -545,5 +613,17 @@ a:hover {
 
   .app-footer .copy-container {
     font-size: 9px;
+  }
+
+  .add-new-record {
+    min-height: 70vh;
+  }
+  .add-new-record-title {
+    padding-top: 1rem;
+    font-size: 18px;
+  }
+  .add-new-form {
+    padding: 1.5rem;
+    width: 90%;
   }
 }

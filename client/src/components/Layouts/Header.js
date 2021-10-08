@@ -8,7 +8,7 @@ import { FiMail } from "react-icons/fi";
 import "../../Styles/main.css";
 import axios from "axios";
 import { UserData } from "../../App";
-import { isLoggedin } from "../Utils/auth";
+import { isLoggedin } from "../Utils/Api/auth";
 
 function Header(props) {
   const userData = useContext(UserData);

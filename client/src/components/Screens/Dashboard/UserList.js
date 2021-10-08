@@ -1,85 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { BiEdit, BiCommentDetail } from "react-icons/bi";
 import { ImPlus } from "react-icons/im";
 import { AiOutlineDelete } from "react-icons/ai";
+import { Link, Redirect } from "react-router-dom";
 // import {  AiOutlineLine } from "react-icons/ai";
 import { MdClear } from "react-icons/md";
 // import { BsCaretDown, BsCaretUp } from "react-icons/bs";
 // import Queue from "../../Utils/Queue";
 // import { sortFunction } from "../../Utils/sort";
 import { cleanTitle } from "../../Utils/regex";
-
-const testData = [
-  {
-    name: "Tejas Borde",
-    checkIn: "24/09/2021",
-    checkOut: "2/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Aditya Deo",
-    checkIn: "1/09/2021",
-    checkOut: "10/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Suraj Dhamak",
-    checkIn: "23/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Tejas Borde",
-    checkIn: "24/08/2021",
-    checkOut: "7/09/2021",
-    bookedAt: "2007-05-08 11:24:00",
-  },
-  {
-    name: "Aditya Deo",
-    checkIn: "24/09/2021",
-    checkOut: "26/05/2021",
-    bookedAt: "2007-05-08 12:12:00",
-  },
-  {
-    name: "Tejas Borde",
-    checkIn: "24/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Aditya Deo",
-    checkIn: "24/09/2021",
-    checkOut: "24/05/2021",
-    bookedAt: "2007-05-08 10:36:00",
-  },
-  {
-    name: "Suraj Dhamak",
-    checkIn: "24/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Tejas Borde",
-    checkIn: "24/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 07:35:00",
-  },
-  {
-    name: "Aditya Deo",
-    checkIn: "24/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-  {
-    name: "Suraj Dhamak",
-    checkIn: "24/09/2021",
-    checkOut: "24/09/2021",
-    bookedAt: "2007-05-08 12:35:00",
-  },
-];
+import { getRecords } from "../../Utils/Api/Records";
+import { UserData } from "../../../App";
+import Moment from "react-moment";
 
 const UserList = () => {
-  const [data, setData] = useState(testData);
+  const [data, setData] = useState(null);
+  const userContext = useContext(UserData);
+  const LoadRecords = () => {
+    getRecords()
+      .then((res) => {
+        if (res.data.records) {
+          setData(res.data.records);
+          console.log(res.data.records);
+        }
+        userContext.setisLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        userContext.setisLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    userContext.setisLoading(true);
+    Aos.init({ duration: 1500 });
+    LoadRecords();
+  }, []);
   const [searchValue, setsearchValue] = useState("");
   // const [nameSortDirectionQueue, setnameSortDirectionQueue] = useState(
   //   new Queue()
@@ -166,7 +124,7 @@ const UserList = () => {
       });
       setData(searchRecords);
     } else {
-      setData(testData);
+      LoadRecords();
     }
   };
   return (
@@ -191,17 +149,17 @@ const UserList = () => {
                 style={{ marginTop: "6", cursor: "pointer" }}
                 onClick={() => {
                   setsearchValue("");
-                  setData(testData);
+                  LoadRecords();
                 }}
               />
             </div>
           </div>
         </div>
         <div className="row add-customer">
-          <button className="btn btn-primary">
-            Add New Customer
+          <Link className="btn btn-primary" to="/add-new-record">
+            Add New Record
             <ImPlus style={{ marginLeft: "0.5rem" }} size={"12"} />
-          </button>
+          </Link>
         </div>
         <div className="row">
           <div className="col-md-1">Sr. No</div>
@@ -256,10 +214,10 @@ const UserList = () => {
               )}
             </span> */}
           </div>{" "}
-          <div className="col-md-2">View Details</div>
-          <div className="col-md-1">Edit</div>
+          <div className="col-md-2">View/Edit</div>
+          {/* <div className="col-md-1">Edit</div> */}
           <div className="col-md-1">Delete</div>
-          <div className="col-md-1">Booked At</div>
+          <div className="col-md-2">Created At</div>
         </div>
 
         {data
@@ -268,20 +226,30 @@ const UserList = () => {
                 <div className="row" key={index}>
                   <div className="col-md-1">{index + 1}</div>
                   <div className="col-md-2">{d.name}</div>
-                  <div className="col-md-2">{d.checkIn}</div>
-                  <div className="col-md-2">{d.checkOut}</div>
+                  <div className="col-md-2">
+                    {" "}
+                    <Moment format="DD MMM, YYYY-hh:mm A" date={d.checkIn} />
+                  </div>
+                  <div className="col-md-2">
+                    <Moment format="DD MMM, YYYY-hh:mm A" date={d.checkOut} />
+                  </div>
 
                   <div className="col-md-2">
-                    <BiCommentDetail />
+                    <Link to={`/${d._id}/dashboard`}>
+                      <BiCommentDetail />/<BiEdit />
+                    </Link>
                   </div>
-                  <div className="col-md-1">
+                  {/* <div className="col-md-1">
                     <BiEdit />
-                  </div>
+                  </div> */}
                   <div className="col-md-1">
                     <AiOutlineDelete />
                   </div>
-                  <div className="col-md-1" style={{ fontSize: "10px" }}>
-                    {d.bookedAt}
+                  <div
+                    className="col-md-2"
+                    style={{ fontSize: "14px", textAlign: "center" }}
+                  >
+                    <Moment format="DD MMM, YYYY-hh:mm A" date={d.createdAt} />
                   </div>
                 </div>
               );

@@ -13,31 +13,33 @@ import Login from "./components/Screens/Auth/Login";
 import ContactUs from "./components/Screens/ContactUs";
 import { createContext, useState, useEffect } from "react";
 import Dashboard from "./components/Screens/Dashboard/Dashboard";
-import { isLoggedin } from "./components/Utils/auth";
+import { isLoggedin } from "./components/Utils/Api/auth";
 import UserList from "./components/Screens/Dashboard/UserList";
+import AddNewRecord from "./components/Screens/AddNewRecord/AddNewRecord";
+import AlertComponent from "./components/Layouts/AlertComponent";
+import PreLoader from "./components/Layouts/PreLoader";
 
 export const UserData = createContext(null);
 function App() {
   const [user, setuser] = useState({});
   const [authenticated, setauthenticated] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
+  const [alertOpen, setAlertOpen] = useState([false]);
 
-  // const checkAuth = () => {
-  //   isLoggedin()
-  //     .then((res) => {
-  //       if (res.data.status !== "error") {
-  //         setauthenticated(true);
-  //         setuser(res.data);
-  //       }
-  //     })
-  //     .catch((err) => {});
-  // };
+  const handleAlert = (type, msg) => {
+    setAlertOpen([true, type, msg]);
+    setTimeout(() => {
+      setAlertOpen(false);
+    }, 5000);
+  };
 
   const data = {
     user: user,
     setuser,
     authenticated,
     setauthenticated,
-    // checkAuth,
+    handleAlert,
+    setisLoading,
   };
 
   useEffect(() => {
@@ -53,9 +55,12 @@ function App() {
   if (authenticated) {
     <Redirect to="/receptionist/customers" />;
   }
+
   return (
     <UserData.Provider value={data} className="App">
       <Router>
+        <AlertComponent data={alertOpen} />
+        {isLoading ? <PreLoader /> : ""}
         <Header />
         <Switch>
           <Route path="/login">
@@ -65,8 +70,13 @@ function App() {
             <ContactUs />
           </Route>
           <Route path="/receptionist/customers">
-            {authenticated ? <UserList /> : <Redirect to="/login" />}
-            {/* {authenticated ? <Dashboard /> : <Redirect to="/login" />} */}
+            <UserList />
+          </Route>
+          <Route path="/:recordId/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/add-new-record">
+            <AddNewRecord />{" "}
           </Route>
           <Route exact path="/">
             <Home />
