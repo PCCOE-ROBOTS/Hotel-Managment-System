@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const RoomsBookedSchema = new Schema({
-  roomNo: {
-    type: Number,
+  roomId: {
+    type: String,
     required: true,
   },
-  roomPricePerDay: {
-    type: Number,
+  roomNo: {
+    type: String,
     required: true,
   },
   noOfDays: {
@@ -17,6 +17,9 @@ const RoomsBookedSchema = new Schema({
   totalPrice: {
     type: Number,
     default: 0,
+  },
+  bookedAt: {
+    type: String,
   },
 });
 

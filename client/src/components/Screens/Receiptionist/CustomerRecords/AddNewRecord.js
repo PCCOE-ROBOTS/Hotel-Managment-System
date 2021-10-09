@@ -4,7 +4,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { addnewRecord } from "../../../Utils/Api/Records";
 import { UserData } from "../../../../App";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import { ImArrowLeft2 } from "react-icons/im";
 
 const AddNewRecord = () => {
   useEffect(() => {
@@ -18,6 +19,8 @@ const AddNewRecord = () => {
     email: "",
     checkIn: null,
     checkOut: null,
+    adults: 0,
+    childs: 0,
   });
 
   const [isAdded, setisAdded] = useState(false);
@@ -47,6 +50,27 @@ const AddNewRecord = () => {
         className="container"
         style={{ marginTop: "10vh", textAlign: "center" }}
       >
+        <div className="row my-2">
+          <div className="col-12">
+            <Link
+              to={`/receptionist/customers`}
+              style={{
+                fontWeight: "600",
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "40px",
+                height: "40px",
+                color: "#e0e4ff",
+                borderRadius: "100%",
+                backgroundColor: "#000",
+              }}
+            >
+              <ImArrowLeft2 size={16} />
+            </Link>
+          </div>
+        </div>
         <h1 className="add-new-record-title">Add New Record</h1>
       </div>
       <div className="col-sm-12 add-new-record">
@@ -66,6 +90,7 @@ const AddNewRecord = () => {
                     name="name"
                     placeholder="Name"
                     value={data.name}
+                    required
                     onChange={(e) => {
                       setData({ ...data, [e.target.name]: e.target.value });
                     }}
@@ -79,6 +104,7 @@ const AddNewRecord = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
+                    required
                     value={data.email}
                     onChange={(e) => {
                       setData({ ...data, [e.target.name]: e.target.value });
@@ -96,7 +122,7 @@ const AddNewRecord = () => {
                     className="form-control "
                     type="datetime-local"
                     name="checkIn"
-                    // value={data.checkIn}
+                    required
                     onChange={(e) => {
                       setData({
                         ...data,
@@ -113,7 +139,7 @@ const AddNewRecord = () => {
                     className="form-control"
                     type="datetime-local"
                     name="checkOut"
-                    // value={data.checkOut}
+                    required
                     onChange={(e) => {
                       setData({
                         ...data,
@@ -121,6 +147,50 @@ const AddNewRecord = () => {
                       });
                     }}
                   />
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <span className="check-input-label">Number of Adults</span>
+                  <div className="col-4">
+                    {" "}
+                    <input
+                      className="form-control"
+                      type="number"
+                      name="adults"
+                      min="0"
+                      required
+                      onChange={(e) => {
+                        setData({
+                          ...data,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3">
+                <div className="mb-3">
+                  <span className="check-input-label">Number of Childs</span>
+                  <div className="col-4">
+                    {" "}
+                    <input
+                      className="form-control"
+                      type="number"
+                      name="childs"
+                      min="0"
+                      required
+                      onChange={(e) => {
+                        setData({
+                          ...data,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

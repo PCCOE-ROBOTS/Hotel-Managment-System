@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Redirect } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
 import { FaUserAlt } from "react-icons/fa";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { VscOrganization } from "react-icons/vsc";
 import { FiMail } from "react-icons/fi";
-
 import axios from "axios";
 import { UserData } from "../../App";
 import { isLoggedin } from "../Utils/Api/auth";
@@ -22,15 +21,6 @@ function Header(props) {
     document.getElementById("navbarNavDropdown").classList.remove("show");
     document.getElementById("btn-toggle").classList.add("collapsed");
   };
-
-  // const logout = () => {
-  //   axios
-  //     .post("/logout")
-  //     .then((res) => {
-  //       userData.setUser(null);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
 
   useEffect(() => {
     isLoggedin()

@@ -23,9 +23,17 @@ const RecordSchema = new Schema({
     type: String,
     required: true,
   },
-  RoomsBooked: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "RoomsBooked", default: null },
-  ],
+  adults: {
+    type: String,
+    required: true,
+    default: 0,
+  },
+  childs: {
+    type: String,
+    required: true,
+    default: 0,
+  },
+  RoomsBooked: [{ type: mongoose.Schema.Types.ObjectId, ref: "RoomsBooked" }],
   //   FoodOrdered: [
   //     { type: mongoose.Schema.Types.ObjectId, ref: "FoodOrdered", default: null },
   //   ],

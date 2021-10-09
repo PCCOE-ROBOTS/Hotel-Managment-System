@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { UserData } from "../../../../../App";
 import { getRecordUsingId } from "../../../../Utils/Api/Records";
 import { BiEdit } from "react-icons/bi";
+import { RiBillLine } from "react-icons/ri";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
@@ -25,6 +28,7 @@ const DashBoardDetails = (props) => {
   };
 
   useEffect(() => {
+    Aos.init({ duration: 1500 });
     userContext.setisLoading(true);
     getRecordData(_id);
   }, [_id]);
@@ -72,9 +76,26 @@ const DashBoardDetails = (props) => {
           </div>
           <div className="row dashboard-row">
             <div className="col-4">
+              Adults{" (>18)"} : {data.adults}
+            </div>
+            <div className="col-4">
+              Childrens{" (<18)"} : {data.childs}
+            </div>
+          </div>
+          <div className="row dashboard-row">
+            <div className="col-4">
+              Total Count : {parseInt(data.adults) + parseInt(data.childs)}
+            </div>
+            <div className="col-4">
               Created at :{" "}
               <Moment format="DD MMM, YYYY-hh:mm A" date={data.createdAt} />
             </div>
+          </div>
+          <div className="row dashboard-row">
+            <button className="btn">
+              Generate Bill
+              <RiBillLine style={{ marginLeft: "5px" }} size={20} />
+            </button>
           </div>
         </div>
       ) : (

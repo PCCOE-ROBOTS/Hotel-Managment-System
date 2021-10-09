@@ -16,7 +16,7 @@ const Dashboard = () => {
     <>
       <div className="dashboard">
         <div className="container-fluid">
-          <div className="row my-2">
+          {/* <div className="row back-btn">
             <div className="col-12">
               <Link
                 to={`/receptionist/customers`}
@@ -36,8 +36,60 @@ const Dashboard = () => {
                 <ImArrowLeft2 size={14} />
               </Link>
             </div>
+          </div> */}
+
+          <div className="container-fluid">
+            <div className="dashboard-tab back-btn-tab">
+              <Link
+                to={`/receptionist/customers`}
+                style={{
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "30px",
+                  height: "30px",
+                  color: "#e0e4ff",
+                  borderRadius: "100%",
+                  backgroundColor: "#000",
+                }}
+              >
+                <ImArrowLeft2 size={14} />
+              </Link>
+            </div>
+            <div className="dashboard-tab ">
+              {" "}
+              <Link className="mt-3 active" to={`${url}`}>
+                <strong style={{ textAlign: "center" }}>Dashboard </strong>
+              </Link>
+            </div>
+            <div className="dashboard-tab ">
+              <Link className="" to={`${url}/book-room`}>
+                <strong style={{ textAlign: "center" }}>Book Room</strong>
+              </Link>{" "}
+            </div>
+            {/* <div className="dashboard-tab ">
+              <Link className="" to={`${url}/order-food`}>
+                <strong style={{ textAlign: "center" }}>Order Food</strong>
+              </Link>
+            </div> */}
           </div>
-          <div className="row">
+
+          <div className="container-fluid dashboard-data">
+            <Switch>
+              <Route exact path={`${path}`}>
+                <DashBoardDetails _id={recordId} />
+              </Route>
+              <Route path={`${path}/book-room`}>
+                <BookRoom _id={recordId} />
+              </Route>
+              <Route path={`${path}/order-food`}>
+                <OrderFood _id={recordId} />
+              </Route>
+            </Switch>
+          </div>
+          {/* <div className="row">
             <div className="col-md-2">
               <div
                 className="container-fluid"
@@ -74,7 +126,7 @@ const Dashboard = () => {
                 </Route>
               </Switch>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

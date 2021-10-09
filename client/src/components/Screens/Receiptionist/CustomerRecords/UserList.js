@@ -5,7 +5,7 @@ import { BiEdit, BiCommentDetail } from "react-icons/bi";
 import { ImPlus } from "react-icons/im";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import {  AiOutlineLine } from "react-icons/ai";
 import { MdClear } from "react-icons/md";
 // import { BsCaretDown, BsCaretUp } from "react-icons/bs";
@@ -19,6 +19,7 @@ import Moment from "react-moment";
 const UserList = () => {
   const [data, setData] = useState(null);
   const [searchValue, setsearchValue] = useState("");
+
   const userContext = useContext(UserData);
 
   const deleteRecord = (deleteData) => {
@@ -54,6 +55,7 @@ const UserList = () => {
   useEffect(() => {
     userContext.setisLoading(true);
     Aos.init({ duration: 1500 });
+
     LoadRecords();
   }, []);
 
@@ -318,7 +320,7 @@ const UserList = () => {
                       </p>
                       <Link
                         to={`/${d._id}/dashboard`}
-                        className=" record-card-link"
+                        className="record-card-link"
                       >
                         View <BiCommentDetail />
                         /Edit
@@ -326,7 +328,7 @@ const UserList = () => {
                       </Link>
                       <span className=" record-card-link red-link">
                         <MdDelete
-                          size={20}
+                          size={16}
                           style={{ cursor: "pointer" }}
                           onClick={() => {
                             userContext.setisLoading(true);

@@ -47,5 +47,17 @@ router.post("/delete-record", (req, res) => {
     }
   });
 });
+//get data of rooms booked in a record using record id
+router.get("/get-room-booked-data/:id", (req, res) => {
+  Record.findById(req.params.id)
+    .populate("RoomsBooked")
+    .exec((err, record) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(record);
+      }
+    });
+});
 
 module.exports = router;
