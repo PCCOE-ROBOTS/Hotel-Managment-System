@@ -6,6 +6,7 @@ var app = express();
 var passport = require("passport");
 const cors = require("cors");
 const connectDB = require("./config/database");
+const path = require("path");
 
 connectDB();
 
