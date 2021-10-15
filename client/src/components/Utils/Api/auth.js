@@ -2,12 +2,14 @@ import axios from "axios";
 
 export const loginApi = (userData) => {
   try {
-    return axios({
-      method: "POST",
-      data: userData,
-      withCredentials: true,
-      url: "/login",
-    });
+    // return axios({
+    //   method: "POST",
+    //   data: userData,
+    //   withCredentials: true,
+    //   url: "/login",
+    // });
+
+    return axios.post(`/login`, userData);
   } catch (error) {}
 };
 
