@@ -6,7 +6,7 @@ export const loginApi = (userData) => {
       method: "POST",
       data: userData,
       withCredentials: true,
-      url: "http://localhost:8080/login",
+      url: "/login",
     });
   } catch (error) {}
 };
