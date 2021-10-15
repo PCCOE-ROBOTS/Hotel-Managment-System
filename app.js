@@ -9,6 +9,8 @@ const connectDB = require("./config/database");
 
 connectDB();
 
+app.use(express.static("client/build"));
+
 app.use(cookieParser("secretcode"));
 app.use(
   bodyParser.urlencoded({
@@ -52,7 +54,9 @@ require("./routes/auth.js")(app, passport);
 app.use(require("./routes/Records"));
 app.use(require("./routes/Rooms"));
 app.use(require("./routes/tempRoutes"));
-
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 app.listen(process.env.PORT || 8080, (err, res) => {
   if (err) {
     console.log(err);
