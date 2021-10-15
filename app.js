@@ -56,7 +56,7 @@ app.use(require("./routes/Records"));
 app.use(require("./routes/Rooms"));
 app.use(require("./routes/tempRoutes"));
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 app.listen(process.env.PORT || 8080, (err, res) => {
   if (err) {
