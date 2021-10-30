@@ -1,4 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { Redirect } from "react-router";
 import { UserData } from "../../../../../App";
 import { bookARoom, getAllRooms } from "../../../../Utils/Api/Rooms";

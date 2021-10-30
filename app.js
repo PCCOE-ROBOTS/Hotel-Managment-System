@@ -54,6 +54,7 @@ require("./config/passport")(passport);
 require("./routes/auth.js")(app, passport);
 app.use(require("./routes/Records"));
 app.use(require("./routes/Rooms"));
+app.use(require("./routes/Items"));
 app.use(require("./routes/tempRoutes"));
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

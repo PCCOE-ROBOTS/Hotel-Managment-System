@@ -589,7 +589,8 @@ a:hover {
   margin: 1rem auto;
 }
 
-.book-room-card {
+.book-room-card,
+.menu-card {
   font-size: 14px;
   background-color: var(--bg-dark);
   padding: 0.2rem;
@@ -597,6 +598,10 @@ a:hover {
   margin: 0.1rem;
   color: white;
   min-height: 200px;
+}
+
+.menu-card {
+  min-height: 150px;
 }
 .book-room-dashboard-header {
   padding-left: 12px;
@@ -606,7 +611,8 @@ a:hover {
   border-radius: 2px;
   font-weight: 600;
 }
-.room-details-btn {
+.room-details-btn,
+.add-to-cart-btn {
   font-size: 12px;
   padding: 8px 12px;
 }
@@ -660,6 +666,16 @@ a:hover {
 
 .legend-green-square {
   background-color: #70e000;
+}
+
+.veg-img {
+  height: 16px;
+  width: 40px;
+}
+
+.veg-img img {
+  height: 100%;
+  width: 100%;
 }
 /* end book room && order food */
 
@@ -879,6 +895,17 @@ a:hover {
   .dashboard {
     height: 800px;
     /* margin-bottom: -1vh; */
+  }
+
+  .menu-card {
+    min-height: 125px;
+  }
+
+  .room-details-btn,
+  .add-to-cart-btn {
+    padding: 0.6rem;
+    margin: 0.5rem 0;
+    font-size: 12px;
   }
 }
 

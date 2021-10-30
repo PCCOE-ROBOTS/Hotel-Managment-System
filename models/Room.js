@@ -22,4 +22,4 @@ const RoomSchema = new Schema({
   },
 });
 
-module.exports = User = mongoose.model("Room", RoomSchema);
+module.exports = Room = mongoose.model("Room", RoomSchema);
