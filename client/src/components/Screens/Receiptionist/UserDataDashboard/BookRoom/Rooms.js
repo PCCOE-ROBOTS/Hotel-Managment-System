@@ -74,7 +74,7 @@ const Rooms = (props) => {
               ? rooms.map((room) => {
                   return (
                     <>
-                      <div className="col-sm-6 col-md-1 room-no">
+                      <div className="col-sm-3 col-md-1 room-no">
                         <div
                           className="row-block"
                           style={{

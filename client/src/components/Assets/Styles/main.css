@@ -1,5 +1,5 @@
 /* a {
-  color: #f7f7f7;
+  color: var(--body-dark);
   text-decoration: none;
 }
 
@@ -7,6 +7,15 @@ a:hover {
   color: rgba(255, 255, 255, 0.8);
   padding-left: 2px;
   padding-right: 2px;
+} */
+
+:root {
+  --body-dark: #f7f7f7;
+  --bg-dark: #101116;
+}
+/* :root {
+  --body-dark: #101116;
+  --bg-dark: #f7f7f7;
 } */
 
 .navbar {
@@ -28,7 +37,7 @@ a:hover {
   box-shadow: none !important;
 }
 .bg-dark {
-  background: #101116 !important;
+  background: var(--bg-dark) !important;
   /* transition-delay: 0.5s;
   transition-property: background; */
 }
@@ -39,12 +48,12 @@ a:hover {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #f7f7f7;
+  color: var(--body-dark);
   position: relative;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: var(--body-dark);
 }
 .navbar-dark .navbar-nav .nav-link::after {
   position: absolute;
@@ -109,7 +118,7 @@ a:hover {
 .app-footer {
   padding-top: 3rem;
   background-color: #000;
-  color: #f7f7f7;
+  color: var(--body-dark);
   font-size: 14px;
   width: 100%;
 }
@@ -154,8 +163,8 @@ a:hover {
 }
 
 .app-footer .social-links a:hover {
-  background-color: #ffffff;
-  color: #282d32;
+  background-color: var(--body-dark);
+  color: var(--bg-dark);
   opacity: 0.9;
 }
 
@@ -196,7 +205,7 @@ a:hover {
 .app-footer .footer-links a,
 .app-footer .footer-contact a,
 .small-screen-none a {
-  color: #f7f7f7;
+  color: var(--body-dark);
   text-decoration: none;
 }
 
@@ -245,7 +254,7 @@ a:hover {
   font-size: 12px;
   padding-top: 1rem;
   margin-top: 1rem;
-  background: #101116;
+  background: var(--bg-dark);
   padding-bottom: 1rem;
   border-top: 0.5px solid #474952;
 }
@@ -266,7 +275,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   color: #333;
-  background-color: #101116;
+  background-color: var(--bg-dark);
   background: url("../Images/main-bg.svg") no-repeat center;
   background-size: 70vh;
   background-attachment: fixed;
@@ -322,14 +331,14 @@ a:hover {
   box-shadow: 2px 2px 4px #e0e4ff;
 }
 .btn-primary {
-  color: black !important;
+  color: var(--bg-dark) !important;
 }
 .login-btn {
   display: flex;
   justify-content: center;
   text-align: center;
   margin-bottom: 1rem;
-  color: black !important;
+  color: var(--bg-dark) !important;
 }
 
 .btn {
@@ -347,7 +356,7 @@ a:hover {
   outline: none !important;
   background-color: #e0e4ff !important;
   margin-top: 15px;
-  color: black;
+  color: var(--bg-dark);
 }
 
 /* Login Page*/
@@ -374,7 +383,7 @@ a:hover {
 
 .login-form,
 .contact-form {
-  background-color: #101116;
+  background-color: var(--bg-dark);
   padding: 4rem;
   border-radius: 4px;
 }
@@ -407,7 +416,7 @@ a:hover {
   height: 40px;
   border-radius: 100%;
   background: #e0e4ff;
-  color: black;
+  color: var(--bg-dark);
   z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -416,7 +425,7 @@ a:hover {
 */
 
 .add-new-record-title {
-  color: black;
+  color: var(--bg-dark);
 }
 
 .add-new-record {
@@ -428,7 +437,7 @@ a:hover {
 }
 
 .add-new-form {
-  background-color: #101116;
+  background-color: var(--bg-dark);
   padding: 4rem;
   border-radius: 4px;
   width: 60%;
@@ -476,7 +485,7 @@ a:hover {
 
 .dashboard a,
 .dashboard-tab a {
-  color: black;
+  color: var(--bg-dark);
   text-decoration: none;
 }
 
@@ -489,9 +498,9 @@ a:hover {
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   /* background-color: #e0e4ff; */
-  background-color: #ffffff;
+  background-color: var(--body-dark);
   border-radius: 2px;
-  color: black !important;
+  color: var(--bg-dark) !important;
 }
 
 .back-btn-tab {
@@ -521,7 +530,7 @@ a:hover {
   padding: 1rem;
   margin: 0.1rem;
   color: white;
-  background-color: #101116;
+  background-color: var(--bg-dark);
   border-radius: 5px;
 }
 /*End DashBoard Details*/
@@ -539,7 +548,7 @@ a:hover {
 }
 
 .user-list-container > .row {
-  background-color: #101116;
+  background-color: var(--bg-dark);
   border-radius: 4px;
   margin: 0.1rem;
   padding: 1rem;
@@ -577,11 +586,12 @@ a:hover {
   background-color: white;
   border-radius: 5px;
   overflow-y: scroll;
+  margin: 1rem auto;
 }
 
 .book-room-card {
   font-size: 14px;
-  background-color: #101116;
+  background-color: var(--bg-dark);
   padding: 0.2rem;
   border-radius: 4px;
   margin: 0.1rem;
@@ -601,8 +611,8 @@ a:hover {
   padding: 8px 12px;
 }
 
-.room-booked-at {
-}
+/* .room-booked-at {
+} */
 
 .room-no {
   height: 100px !important;
@@ -670,7 +680,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     color: #333;
-    background-color: #101116;
+    background-color: var(--bg-dark);
     background: url("../Images/main-bg.svg") no-repeat center;
     background-size: 40vh;
     background-attachment: fixed;
@@ -757,7 +767,7 @@ a:hover {
     width: 95%;
     margin: 1rem;
     margin-left: 2.5%;
-    background-color: #101116;
+    background-color: var(--bg-dark);
     color: white;
   }
 
@@ -793,7 +803,7 @@ a:hover {
     outline: none !important;
     background-color: #e0e4ff !important;
     margin-top: 15px;
-    color: black;
+    color: var(--bg-dark);
     border-radius: 3px;
     text-decoration: none !important;
   }
@@ -813,6 +823,62 @@ a:hover {
   .add-new-form {
     padding: 1.5rem;
     width: 90%;
+  }
+
+  .small-screen-dashboard-tab {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 10px;
+    margin-top: 0.5rem;
+    /* margin-right: 0.5rem; */
+    border-radius: 2px;
+    color: var(--bg-dark) !important;
+  }
+
+  .dashboard-details .dashboard-row {
+    width: 100%;
+    padding: 0.3rem;
+    font-size: 10px;
+    /* margin: 0.1rem; */
+    background-color: var(--bg-dark);
+    border-radius: 5px;
+  }
+
+  .dashboard-data,
+  .dashboard-details {
+    padding: 0 !important;
+  }
+  .dashboard-details {
+    height: 60vh;
+  }
+
+  .btn {
+    padding: 6px 48px;
+    font-size: 12px;
+    margin-top: 0px;
+  }
+
+  .book-room-dashboard-header {
+    font-size: 12px;
+    width: 80px;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .book-room,
+  .order-food {
+    padding: 1rem 0.5rem;
+    height: 550px;
+  }
+
+  .legends {
+    margin: 2rem 0.2rem;
+  }
+
+  .dashboard {
+    height: 800px;
+    /* margin-bottom: -1vh; */
   }
 }
 

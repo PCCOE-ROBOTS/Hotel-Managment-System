@@ -58,22 +58,21 @@ const Dashboard = () => {
                 <ImArrowLeft2 size={14} />
               </Link>
             </div>
-            <div className="dashboard-tab ">
-              {" "}
-              <Link className="mt-3 active" to={`${url}`}>
-                <strong style={{ textAlign: "center" }}>Dashboard </strong>
+            <div className="dashboard-tab mt-3 small-screen-dashboard-tab">
+              <Link className="active" to={`${url}`}>
+                <strong>Dashboard </strong>
               </Link>
             </div>
-            <div className="dashboard-tab ">
+            <div className="dashboard-tab small-screen-dashboard-tab">
               <Link className="" to={`${url}/book-room`}>
-                <strong style={{ textAlign: "center" }}>Book Room</strong>
+                <strong>Book Room</strong>
               </Link>{" "}
             </div>
-            {/* <div className="dashboard-tab ">
+            <div className="dashboard-tab small-screen-dashboard-tab">
               <Link className="" to={`${url}/order-food`}>
-                <strong style={{ textAlign: "center" }}>Order Food</strong>
+                <strong>Order Food</strong>
               </Link>
-            </div> */}
+            </div>
           </div>
 
           <div className="container-fluid dashboard-data">

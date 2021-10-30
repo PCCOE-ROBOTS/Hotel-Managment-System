@@ -61,32 +61,32 @@ const DashBoardDetails = (props) => {
             </Link>
           </div>
           <div className="row dashboard-row">
-            <div className="col-4">Name : {data.name}</div>
-            <div className="col-4">Email Id : {data.email}</div>
+            <div className="col-sm-12 col-md-4">Name : {data.name}</div>
+            <div className="col-sm-12 col-md-4">Email Id : {data.email}</div>
           </div>
           <div className="row dashboard-row">
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               Check In :{" "}
               <Moment format="DD MMM, YYYY-hh:mm A" date={data.checkIn} />
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               Check Out :{" "}
               <Moment format="DD MMM, YYYY-hh:mm A" date={data.checkOut} />
             </div>
           </div>
-          <div className="row dashboard-row">
-            <div className="col-4">
+          <div className="row dashboard-row ">
+            <div className="col-sm-12 col-md-4">
               Adults{" (>18)"} : {data.adults}
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               Childrens{" (<18)"} : {data.childs}
             </div>
           </div>
           <div className="row dashboard-row">
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               Total Count : {parseInt(data.adults) + parseInt(data.childs)}
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4">
               Created at :{" "}
               <Moment format="DD MMM, YYYY-hh:mm A" date={data.createdAt} />
             </div>

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, Link, Redirect } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
 import { FaUserAlt } from "react-icons/fa";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
-import { VscOrganization } from "react-icons/vsc";
+// import { VscOrganization } from "react-icons/vsc";
 import { FiMail } from "react-icons/fi";
-import axios from "axios";
+// import axios from "axios";
 import { UserData } from "../../App";
 import { isLoggedin } from "../Utils/Api/auth";
 
